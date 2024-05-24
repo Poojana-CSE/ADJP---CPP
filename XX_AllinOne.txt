@@ -1,0 +1,1153 @@
+History of C++ Programming
+---------------------------------------
+The C++ programming language has a history going back to 1979, when Bjarne Stroustrup was doing work for his Ph.D. thesis. One of the languages Stroustrup had the opportunity to work with was a language called Simula, which as the name implies is a language primarily designed for simulations. The Simula 67 language - which was the variant that Stroustrup worked with - is regarded as the first language to support the object-oriented programming paradigm. Stroustrup found that this paradigm was very useful for software development, however the Simula language was far too slow for practical use.
+
+Shortly thereafter, he began work on "C with Classes", which as the name implies was meant to be a superset of the C language. His goal was to add object-oriented programming into the C language, which was and still is a language well-respected for its portability without sacrificing speed or low-level functionality. His language included classes, basic inheritance, inlining, default function arguments, and strong type checking in addition to all the features of the C language.
+
+The first C with Classes compiler was called Cfront, which was derived from a C compiler called CPre. It was a program designed to translate C with Classes code to ordinary C. A rather interesting point worth noting is that Cfront was written mostly in C with Classes, making it a self-hosting compiler (a compiler that can compile itself). Cfront would later be abandoned in 1993 after it became difficult to integrate new features into it, namely C++ exceptions. Nonetheless, Cfront made a huge impact on the implementations of future compilers and on the Unix operating system.
+
+In 1983, the name of the language was changed from C with Classes to C++. The ++ operator in the C language is an operator for incrementing a variable, which gives some insight into how Stroustrup regarded the language. Many new features were added around this time, the most notable of which are virtual functions, function overloading, references with the & symbol, the const keyword, and single-line comments using two forward slashes (which is a feature taken from the language BCPL).
+
+In 1985, Stroustrup's reference to the language entitled The C++ Programming Language was published. That same year, C++ was implemented as a commercial product. The language was not officially standardized yet, making the book a very important reference. The language was updated again in 1989 to include protected and static members, as well as inheritance from several classes.
+
+In 1990, The Annotated C++ Reference Manual was released. The same year, Borland's Turbo C++ compiler would be released as a commercial product. Turbo C++ added a plethora of additional libraries which would have a considerable impact on C++'s development. Although Turbo C++'s last stable release was in 2006, the compiler is still widely used.
+
+In 1998, the C++ standards committee published the first international standard for C++ ISO/IEC 14882:1998, which would be informally known as C++98. The Annotated C++ Reference Manual was said to be a large influence in the development of the standard. The Standard Template Library, which began its conceptual development in 1979, was also included. In 2003, the committee responded to multiple problems that were reported with their 1998 standard, and revised it accordingly. The changed language was dubbed C++03.
+
+In 2005, the C++ standards committee released a technical report (dubbed TR1) detailing various features they were planning to add to the latest C++ standard. The new standard was informally dubbed C++0x as it was expected to be released sometime before the end of the first decade. Ironically, however, the new standard would not be released until mid-2011. Several technical reports were released up until then, and some compilers began adding experimental support for the new features.
+
+In mid-2011, the new C++ standard (dubbed C++11) was finished. The Boost library project made a considerable impact on the new standard, and some of the new modules were derived directly from the corresponding Boost libraries. Some of the new features included regular expression support (details on regular expressions may be found here), a comprehensive randomization library, a new C++ time library, atomics support, a standard threading library (which up until 2011 both C and C++ were lacking), a new for loop syntax providing functionality similar to foreach loops in certain other languages, the auto keyword, new container classes, better support for unions and array-initialization lists, and variadic templates.
+
+Drawbacks of Procedure Oriented Programming
+------------------------------------------------------------------------
+Traditional procedural-oriented languages (such as C and Pascal) suffer some notable drawbacks in 
+creating reusable software components:
+
+    The programs are made up of functions. Functions are often not reusable. It is very difficult to copy
+ a function from one program and reuse in another program because the the function is likely to 
+reference the headers, global variables and other functions. In other words, functions are not 
+well-encapsulated as a self-contained reusable unit.
+    The procedural languages are not suitable of high-level abstraction for solving real life problems. 
+For example, C programs uses constructs such as if-else, for-loop, array, function, pointer, which are 
+low-level and hard to abstract real problems such as a Customer Relationship Management (CRM) 
+system or a computer soccer game. (Imagine using assembly codes, which is a very low level code, 
+to write a computer soccer game. C is better but no much better.)
+
+Advantages of Object Oriented Programming Language
+---------------------------------------------------------------------------
+Object-oriented programming (OOP) languages are designed to overcome these problems.
+
+    The basic unit of OOP is a class, which encapsulates both the static attributes and dynamic 
+behaviors within a "box", and specifies the public interface for using these boxes. Since the class is 
+well-encapsulated (compared with the function), it is easier to reuse these classes. In other words,
+ OOP combines the data structures and algorithms of a software entity inside the same box.
+    OOP languages permit higher level of abstraction for solving real-life problems. The traditional 
+procedural language (such as C and Pascal) forces you to think in terms of the structure of the 
+computer (e.g. memory bits and bytes, array, decision, loop) rather than thinking in terms of the 
+problem you are trying to solve. The OOP languages (such as Java, C++, C#) let you think in the  
+problem space, and use software objects to represent and abstract entities of the problem space to
+ solve the problem.
+
+Benefits of OOP
+----------------------
+The procedural-oriented languages focus on procedures, with function as the basic unit. You need to 
+first figure out all the functions and then think about how to represent data.
+
+The object-oriented languages focus on components that the user perceives, with objects as the 
+basic unit. You figure out all the objects by putting all the data and operations that describe the 
+user's interaction with the data.
+
+Object-Oriented technology has many benefits:
+----------------------------------------------------------------
+    Ease in software design as you could think in the problem space rather than the machine's bits and
+ bytes. You are dealing with high-level concepts and abstractions. Ease in design leads to more 
+productive software development.
+    Ease in software maintenance: object-oriented software are easier to understand, therefore easier 
+to test, debug, and maintain.
+    Reusable software: you don't need to keep re-inventing the wheels and re-write the same functions 
+for different situations. The fastest and safest way of developing a new application is to reuse existing 
+codes - fully tested and proven codes.
+
+Components of Oops
+==============
+Class
+A class is a blueprint, template, or prototype that defines and describes the static attributes and 
+dynamic behaviors common to all objects of the same kind.
+
+Object (or) Instance
+An instance is a realization of a particular item of a class. In other words, an instance is an
+ instantiation of a class. All the instances of a class have similar properties, as described in the class 
+definition.
+
+Information Hiding and Encapsulation
+-----------------------------------------------------
+A class encapsulates the static attributes and the dynamic behaviors into a "3-compartment box". 
+Once a class is defined, you can seal up the "box" and put the "box" on the shelve for others to use
+ and reuse. Anyone can pick up the "box" and use it in their application. This cannot be done in the
+ traditional procedural-oriented language like C, as the static attributes (or variables) are scattered 
+over the entire program and header files. You cannot "cut" out a portion of C program, plug into 
+another program and expect the program to run without extensive changes.
+
+Abstraction
+-----------------
+Data abstraction refers to, providing only essential information to the outside world and hiding their 
+background details, i.e., to represent the needed information in program without presenting the
+ details.
+
+Inheritance
+----------------
+One of the most useful aspects of object-oriented programming is code reusability. As the name
+ suggests Inheritance is the process of forming a new class from an existing class that is from the 
+existing class called as base class, new class is formed called as derived class.
+
+Polymorphism
+--------------------
+The ability to use an operator or function in different ways in other words giving different meaning 
+or functions to the operators or functions is called polymorphism. Poly refers to many. That is a single
+ function or an operator functioning in many ways different upon the usage is called polymorphism.
+ 
+The concept of overloading is also a branch of polymorphism. When the existing operator or
+ function is made to operate on new data type, it is said to be overloaded.
+
+The C++ Standard Library can be categorized into two parts:
+===========================================
+    The Standard Function Library: This library consists of general-purpose,stand-alone functions 
+that are not part of any class. The function library is inherited from C.
+
+ The Object Oriented Class Library: This is a collection of classes and associated functions.
+
+Standard C++ Library incorporates all the Standard C libraries also, with small additions and changes
+ to support type safety.
+The Standard Function Library:
+
+The standard function library is divided into the following categories:
+--------------------------------------------------------------------------------------------
+    I/O
+
+    String and character handling
+
+    Mathematical
+
+    Time, date, and localization
+
+    Dynamic allocation
+
+    Miscellaneous
+
+    Wide-character functions
+
+The Object Oriented Class Library:
+------------------------------------------------
+Standard C++ Object Oriented Library defines an extensive set of classes that provide support for a
+ number of common activities, including I/O, strings, and numeric processing. This library includes 
+the following:
+
+    The Standard C++ I/O Classes
+
+    The String Class
+
+    The Numeric Classes
+
+    The STL Container Classes
+
+    The STL Algorithms
+
+    The STL Function Objects
+
+    The STL Iterators
+
+    The STL Allocators
+
+    The Localization library
+
+    Exception Handling Classes
+
+    Miscellaneous Support Library
+
+ Class
+---------
+Class is a collection of variables and functions. It has no memory, It is a detailed description of the 
+class members. Class is also known as User Defined Data type.
+
+Object:
+--------
+An object is a real time entity has manipulated from a class.
+
+Header Files
+----------------
+#include<iostream.h>
+#include<iomanip.h>
+
+Output Function
+----------------------
+cout<<"message";
+cout<<"EscapeSequnces Message";
+cout<<variableName;
+cout<<"EscapeSequnces Message"<<VariableName;
+cout<<"EscapeSequnces Message"<<VariableName<<"Message"<<variablename;
+
+Input Function
+-------------------
+cin>>VariableName;
+cin>>VariableName1>>VariableName2>>VariableName3,..;
+
+
+We can declare variable any where in the program
+C++ is also a case sensitive language
+
+In C++ programming class is optional
+
+Structure of C++ Programming
+------------------------------------------
+#preprocessor Directive
+returntype main()
+{
+   //code
+} 
+
+
+Manipulators (Need to include iomanip.h) 
+------------------
+endl --> Create a new line like '\n'
+dec
+oct
+hex
+setbase()
+setw()
+setfill()
+setprecesion()
+Class
+======
+
+Object
+======
+
+Access Specifiers
+-----------------------
+private
+public 
+protected
+
+Structure of a class
+-------------------------
+class <className>
+{
+ Access Specifier(Private/public/protected):
+ Variable declarations;
+ function declaration / Function definitions;
+};
+Note :
+  In c++ function has refered as 'method'
+Example 1:
+---------------
+#include<iostream.h>
+class Number
+{
+   private:
+       int n1,n2;
+   void read()
+     {
+         cout<<"\nEnter the value for n1:";
+         cin>>n1;
+         cout<<"\nEnter the value for n2:";
+         cin>>n2;
+     }
+
+   public:
+      void sum()
+        {
+           cout<<"\nSum n1 and n2 :"<<(n1+n2);
+        }
+
+     void Avg()
+        {
+           cout<<"\nAverage n1 and n2 :"<<(n1+n2)/2;
+        }
+   int Max(int a, int b)
+     {
+         int res=(a>b)?a:b;
+          return (res);
+     }
+   int Min(int a, int b)
+     {
+         int res=(a<b)?a:b;
+          return (res);
+     }
+};
+ int main()
+{
+   Number num;
+   num.n1=100;
+   num.n2=500;
+
+   num.read();
+
+   num.Sum();
+   num.Avg();
+   cout<<"\nThe max value in 15, 20 is :"<<num.Max(15,20);
+    cout<<"\nThe min value in 15, 20 is :"<<num.Min(15,20);
+} 
+
+Polimorphism
+============
+OverLoading
+-----------------
+Method/ Function Overloading
+------------------------------------------
+You can have multiple definitions for the same function name in the same scope. The definition of the
+ function must differ from each other by the types and/or the number of arguments in the argument
+ list. You can not overload function declarations that differ only by return type.
+
+
+Based on Number on args or Type of qrgs
+
+Example1
+=========
+#include<iostream.h>
+#include<conio.h>
+class c1
+{
+   public:
+      void Area(int a)
+	 {
+	   cout<<"\nThe Area of Square is :"<<a*a;
+	 }
+      void Area(int l,int b)
+	 {
+	   cout<<"\nThe Area of Rectangle is :"<<l*b;
+	 }
+      void Area(float b,float h)
+	 {
+	   cout<<"\nThe Area of Triangle is :"<<0.5*b*h;
+	 }
+      void Area(float r)
+	 {
+	   cout<<"\nThe Area of Circle is :"<<3.14*r*r;
+	 }
+};
+int main()
+{
+ c1 obj1;
+ obj1.Area(10);
+ obj1.Area(5,10);
+ obj1.Area(5.5F,6.2F);
+ obj1.Area(10.5F);
+}
+Example2:
+=========
+#include<iostream.h>
+#include<iomanip.h>
+#include<string.h>
+class Adds
+{
+   public:
+      void add(int n1,int n2)
+        {
+            cout<<"\n Sum of "<<n1<<" and "<<n2 <<" is "<<(n1+n2);
+        }
+
+      void add(float n1,float n2)
+        {
+            cout<<"\n Sum of "<<n1<<" and "<<n2 <<" is "<<(n1+n2);
+        }
+      void add(char *name1 ,char *name2)
+        {
+            cout<<"\n"<< name1<<" "<<name2;
+        }
+};
+int main()
+{
+  Adds a;
+  a.add(10,5);
+  a.add(13.5f,4.5f);
+  a.add("CSC","Perundurai");
+}
+
+Operator Overloading
+------------------------------
+You can redefine or overload most of the built-in operators available in C++. Thus a programmer can 
+use operators with user-defined types as well.
+
+Overloaded operators are functions with special names the keyword operator followed by the symbol
+ for the operator being defined. Like any other function, an overloaded operator has a return type and
+ a parameter list.
+
+Operators Cannot be Overloaded
+---------------------------------------------
+:: Scope resolution Operator
+, Comma Operator
+.* Pointer Operator
+?: Conditional Operator
+. Operator
+Sizeof operator
+
+Following are some restrictions to be kept in mind while implementing operator overloading.
+
+1. Precedence and Associativity of an operator cannot be changed.
+2. Arity (numbers of Operands) cannot be changed. Unary operator remains unary, binary remains 
+binary etc.
+3. No new operators can be created, only existing operators can be overloaded.
+
+Syntax
+=======
+returnType operator <OperatorSymbol>()
+{
+  //code
+}
+
+Example1
+---------------
+#include<iostream.h>
+#include<conio.h>
+class distance
+{
+	int feet;
+	float inch;
+ public:
+	distance(int f,float i)
+	{
+  	 feet=f;
+	 inch=i;
+	}
+	void operator ++()
+	{
+	 feet=feet+100;
+	 inch=inch+50;
+	}
+	void operator +()
+	{
+	 feet+=10;
+	 inch+=10;
+	}
+	void display()
+	{
+	 cout<<"\n The Feet :"<<feet;
+	 cout<<"\n The Inch :"<<inch;
+	 cout<<"\n\n";
+	}
+};
+int main()
+{
+
+	distance d1(10,20.45);
+	distance d2(50,40.45);
+	++d1;
+	+d1;
+	d1.display();
+	++d2;
+	d2.display();
+}
+Constructor
+=========
+A constructor is a special function used to initialize the class members at time of object creation. It 
+will invoked (called) automatically at the time of object creation.A constructor will have exact same 
+name as the class and it does not have any return type at all, not even void. Constructors can be very 
+useful for setting initial values for certain member variables.
+
+Destructor
+---------------
+A destructor is a special member function of a class that is executed whenever an object of it's class 
+goes out of +- or whenever the delete expression is applied to a pointer to the object of that class.
+A destructor will have exact same name as the class prefixed with a tilde (~) and it can neither 
+return a value nor can it take any parameters. Destructor can be very useful for releasing resources 
+before coming out of the program like closing files, releasing memories etc.
+
+1. The name of the constructor should same as class name
+2. It should declared as public
+3. It has no return type
+4. The constructor can be parameterized ( can pass arquements)
+5. It can be overloaded
+
+The constructor has classified in three types
+1. Default constructor
+2. Parameterized constructor
+3. Copy constructor
+
+Example1:
+#include<iostream.h>
+#include<conio.h>
+class marks
+{
+  private:
+      int m1,m2,m3,m4,m5,tot;
+       float avrg;
+   public:
+    marks()
+     {
+        m1=0;m2=0;m3=0;m4=0;m5=0;tot=0;avrg=0.0F;
+        cout<<"\nDefault values loaded by constrcutor";
+     }
+   void Result()
+     {
+        tot=m1+m2+m3+m4+m5;
+        avrg=(float)tot/5.0f;
+        cout<<"\nTotal : "<<tot;
+        cout<<"\nAverage : "<<avrg;
+     }
+ };
+ int main()
+ {
+   marks m;
+   m.Result();
+ }
+
+Example2:
+--------------
+#include<iostream.h>
+#include<conio.h>
+class marks
+{
+  private:
+   int m1,m2,m3,m4,m5,tot;
+   float avrg;
+   public:
+    marks() // default constructor
+     {
+       m1=0;m2=0;m3=0;m4=0;m5=0;tot=0;avrg=0.0F;
+       cout<<"\nDefault Values Loaded";
+     }
+
+  marks(int M1,int M2,int M3,int M4,int M5) // parameterized constructor
+     {
+	m1=M1;m2=M2;m3=M3;m4=M4;m5=M5;
+     }
+marks(marks *s1) // copy constructor
+     {
+	m1=s1->m1+10;
+	m2=s1->m2+10;
+	m3=s1->m3+10;
+	m4=s1->m4+10;
+	m5=s1->m5+10;
+     }
+~marks()
+   {
+     m1=0;
+     m2=0;
+     m3=0;
+     m4=0;
+     m5=0;
+     tot=0;
+     avrg=0.0F;
+	 cout<<"\nValues Reseted";
+   }
+
+      void Result()
+     {
+        tot=m1+m2+m3+m4+m5;
+        avrg=(float)tot/5.0f;
+        cout<<"\nTotal : "<<tot;
+        cout<<"\nAverage : "<<avrg;
+     }
+   
+ };
+int main()
+{
+ marks m;
+ marks m1(90,89,78,88,80);
+ marks m2(&m1);
+ m.Result();
+ m1.Result();
+ m2.Result();		
+ }
+
+Friend Function
+-----------------------
+The friend function is used to access the private members of a class.
+
+The friend function should not be member of any class.
+We should declare the function which is going to access the private  members as friend.
+
+Syntax:
+friend <returnType> functionName(ClassName);
+
+Example1
+========
+#include<iostream.h>
+#include<conio.h>
+class Bank
+{
+  private:
+     int Balance,Accno;
+     char Name[20];
+  public:
+  void get()
+    {
+       cout<<"\n Enter the AccountNumber:";
+       cin>>Accno;
+       cout<<"\n Enter the AccountName:";
+       cin>>Name;
+       cout<<"\n Enter the AccountBalance:";
+       cin>>Balance;
+}
+     friend void CheckBalance(Bank);  // we must declare the function as friend which  accesses the
+                                                                                         private member
+};
+
+void CheckBalance(Bank d)
+  {
+	cout<<"\nAccount Number\t:"<<d.Accno;
+	cout<<"\nAccount Name\t:"<<d.Name;
+	cout<<"\nAvailable Balance\t:"<<d.Balance;
+  }
+void main()
+  {
+      Bank b1;
+      b1.get();
+      CheckBalance(b1);		
+  }
+
+Example2
+========
+#include<iostream.h>
+#include<conio.h>
+class Bank
+{
+  private:
+     int Balance,Accno;
+     char Name[20];
+  public:
+  void get()
+    {
+       cout<<"\n Enter the AccountNumber:";
+       cin>>Accno;
+       cout<<"\n Enter the AccountName:";
+       cin>>Name;
+       cout<<"\n Enter the AccountBalance:";
+       cin>>Balance;
+}
+     friend void CheckBalance(Bank);
+     friend Bank WithDraw(Bank,int);
+};
+
+void CheckBalance(Bank d)
+  {
+	cout<<"\nAccount Number\t:"<<d.Accno;
+	cout<<"\nAccount Name\t:"<<d.Name;
+	cout<<"\nAvailable Balance\t:"<<d.Balance;
+  }
+  
+ Bank WithDraw(Bank d,int Amount)
+  {
+    if(d.Balance>=Amount)
+	 {
+       	     d.Balance=d.Balance-Amount;
+	 }
+	 else
+	 {
+	   cout<<"\nInSufficient Balance. Withdraw unsuccessfull";
+	 }  
+	 
+	 return d;
+  }
+int main()
+  {
+      Bank b1;
+      b1.get();
+   
+      CheckBalance(b1);	
+      b1=WithDraw(b1,40000);
+      CheckBalance(b1);	  	  
+  }
+
+Scope Resolution Operator
+--------------------------------------
+The scope resolution operator is used to refer a class member outside the class.
+We can define a function out side the class using scope resolution operator.
+
+Example1:
+=========
+#include<iostream.h>
+#include<conio.h>
+class Bank
+{
+  private:
+     int Balance,Accno;
+     char Name[20];
+  public:
+  void Get();
+  void Show();
+  void Withdraw(int);
+  void Deposite(int);
+};
+void Bank::Get() 
+  {
+       cout<<"\n Enter the AccountNumber:";
+       cin>>Accno;
+       cout<<"\n Enter the AccountName:";
+       cin>>Name;
+       cout<<"\n Enter the AccountBalance:";
+       cin>>Balance;
+   }
+   
+ void Bank::Show()
+   {
+       cout<<"\nAccount Number\t:"<<Accno;
+       cout<<"\nAccount Name\t:"<<Name;
+       cout<<"\nAccount Balance\t:"<<Balance;	          
+   } 
+ void Bank::Withdraw(int amt)
+   {
+      if(amt<=Balance)
+         {
+		  Balance-=amt;
+         }
+   }
+ void Bank::Deposite(int amt)
+   {
+     Balance+=amt;
+   }    
+int main()
+  {
+      Bank b1;
+      b1.Get();
+	  b1.Show();
+	  
+	  b1.Deposite(15000);
+	  b1.Show();
+	  
+	  b1.Withdraw(6000);
+   	  b1.Show();
+  }
+Static Member
+-------------------
+A static member is shared by all objects of the class. All static data is initialized to zero when the first
+ object is created, if no other initialization is present. We can't put it in the class definition but it can 
+be initialized outside the class as done in the following example by redeclaring the static variable, 
+using the scope resolution operator :: to identify which class it belongs to.
+
+Static data members are not part of objects of a given class type. As a result, the declaration of a 
+static data member is not considered a definition. The data member is declared in class scope, but 
+definition is performed at file scope. These static members have external linkage
+
+Example1
+---------------
+#include<iostream.h>
+#include<conio.h>
+class Demo
+{
+	int num;
+	static int c;
+public:
+	void get(int a)
+	{
+	  num=a;
+	  c++;
+	}
+	static void show()
+	{
+	cout<<"\n The number is"<<c;
+	}
+};
+int Demo::c;
+int main()
+{
+	Demo d,d1;
+	d.get(12);
+	d.get(13);
+	d1.get(10);
+	d1.get(20);
+	Demo::show();
+}
+Inheritance:
+
+1. Single Inheritance
+2. Multilevel Inheritance
+3. Hierarchicle Inheritance
+4. Multiple Inheritance
+5. Hybrid Inheritance
+
+Method Overriding
+==============
+If we inherit a class into the derived class and provide a definition for one of the base class's function 
+again inside the derived class, then that function is said to be overridden, and this mechanism is 
+called Function Overriding.
+
+   1. Inheritance should be there. Function overriding cannot be done within a class. For this we 
+require a derived class and a base class.
+    2. Function that is redefined must have exactly the same declaration in both base and derived class,
+ that means same name, same return type and same parameter list.
+Example1
+======
+class Base
+{
+ public:
+ void show()
+ {
+  cout << "Base class\t";
+ }
+};
+class Derived:public Base
+{
+ public:
+ void show()
+ {
+  cout << "Derived Class";
+ }
+};
+int main()
+{
+ Base b;       //Base class object
+ Derived d;     //Derived class object
+ b.show();     //Early Binding Ocuurs
+ d.show();   
+}
+
+Example2
+--------------
+class Base
+{
+ public:
+ void show()
+ {
+  cout << "Base class";
+ }
+};
+class Derived:public Base
+{
+ public:
+ void show()
+ {
+  cout << "Derived Class";
+ }
+};
+
+int main()
+{
+ Base* b;       //Base class pointer
+ Derived d;     //Derived class object
+ b = &d;
+ b->show();     //Early Binding Ocuurs (or) Static Binding
+}
+
+Virtual Functions (Late Binding / Dynamic Bining)
+=====================
+A virtual function is a member function that is declared within a base class and redefined by a derived
+ class. To create virtual function, precede the function’s declaration in the base class with the keyword
+ virtual. When a class containing virtual function is inherited, the derived class redefines the virtual 
+function to suit its own needs.
+
+Base class pointer can point to derived class object. In this case, using base class pointer if we call
+ some function which is in both classes, then base class function is invoked. But if we want to invoke 
+derived class function using base class pointer, it can be achieved by defining the function as virtual
+ in base class, this is how virtual functions .
+
+Virtual function is the member function of a class that can be overriden in its derived class. It is
+ declared with virtual keyword. Virtual function call is resolved at run-time (dynamic binding) 
+whereas the non-virtual member functions are resolved at compile time (static binding).
+In Late Binding function call is resolved at runtime. Hence, now compiler determines the type of 
+object at runtime, and then binds the function call. Late Binding is also called Dynamic Binding or 
+Runtime Binding.
+
+We can call private function of derived class from the base class pointer with the help of virtual 
+keyword. Compiler checks for access specifier only at compile time. So at run time when late binding
+ occurs it does not check whether we are calling the private function or public function.
+
+
+   1. Only the Base class Method's declaration needs the Virtual Keyword, not the definition.
+   2. If a function is declared as virtual in the base class, it will be virtual in all its derived classes.
+   3. The address of the virtual Function is placed in the VTABLE and the compiler uses VPTR to point 
+to the Virtual Function.
+
+Example1
+--------------
+class Base
+{
+    public:
+    virtual void show();
+};
+
+class Derived: public Base
+{
+private:
+    virtual void show()
+    {
+        cout << "Derived class Member Function Message";
+    }
+};
+
+int main()
+{
+    Base *b;
+    Derived d;
+    b = &d;
+    b -> show(); 
+
+}
+
+This Pointer
+------------------
+The ‘this’ pointer is passed as a hidden argument to all nonstatic member function calls and is
+ available as a local variable within the body of all nonstatic functions. ‘this’ pointer is a constant 
+pointer that holds the memory address of the current object. ‘this’ pointer is not available in static 
+member functions as static member functions can be called without any object(with class name).
+Example:
+========
+#include<iostream.h>
+class ThisDemo
+{
+   public:
+   int n1,n2;
+   ThisDemo()
+    {
+	  n1=100;
+	  n2=500;
+	}
+   void Show()
+   {
+     cout<<"\nClass member n1 value is:"<<n1;
+     cout<<"\nClass member n2 value is:"<<n2;	
+   }
+   
+   void Display(int n1,int n2)
+   {
+        cout<<"\nClass member n1 value is:"<<this->n1;
+     	cout<<"\nClass member n2 value is:"<<this->n2;	
+		
+        cout<<"\nLocal variable n1 value is:"<<n1;
+     	cout<<"\nLocal variable n2 value is:"<<n2;	
+   } 
+};
+int main()
+{
+  ThisDemo t;
+  t.Show();
+  t.Display(450,270);
+}
+
+File Handling
+------------------
+File Manipulation are done by the form of stream objects
+
+-Each stream associated with a particular class
+
+  1.ifstream - for handling input files (Reading from file)
+  2.ofstream - for handling output files (Write to a file)
+  3.fstream  - for handling input and output files (both read/write operation)
+
+Write Operation:
+-------------------------
+
+Example:
+--------------
+#include<iostream.h>
+#include<fstream.h>
+#include<iomanip.h>
+int main()
+{
+	char name[30],fname[10];
+	int roll;
+
+	 ofstream t;
+
+	cout<<"\nEnter the File Name:";
+	cin>>fname;
+	 t.open(fname); //file creation
+
+	 cout<<"Enter the student Roll Number:";
+	 cin>>roll;
+
+	 cout<<"Enter the student Name:";
+	 cin>>name;
+
+	 t<<"\nStudent Information\n";
+	 t<<"\n=========================\n";
+	 t<<"Roll No\t:"<<roll<<endl;
+	 t<<"Name \t:"<<name<<endl;
+	t.close();
+}
+
+Reading Operation:
+--------------------------
+#include<iostream.h>
+#include<fstream.h>
+#include<conio.h>
+int main()
+{
+	ifstream inp;
+	char fname[20];
+	char ch;
+	cout<<"\n Enter the filename to Read:";
+	cin>>fname;
+
+	inp.open(fname);
+
+	while(!inp.eof())
+	{
+	ch=inp.get();
+	cout<<ch;
+	}
+	inp.close();
+}
+
+Write Object to a File
+------------------------------
+Example
+-----------
+#include<iostream.h>
+#include<fstream.h>
+#include<conio.h>
+class student
+{
+  private:
+  	int sno,m1,m2,m3,m4,m5,tot;
+  	float avrg;
+  	char name[10];
+
+  	void readData()
+  	{
+
+  		cout<<"\nEnter the Sno";
+  		cin>>sno;
+  		cout<<"\nEnter the student name";
+  		cin>>name;
+
+  		cout<<"\nEnter the M1:";
+  		cin>>m1;
+  		cout<<"\nEnter the M2:";
+  		cin>>m2;
+		cout<<"\nEnter the M3:";
+  		cin>>m3;
+  		cout<<"\nEnter the M4:";
+  		cin>>m4;
+  		cout<<"\nEnter the M5:";
+  		cin>>m5;
+  	}
+ public:
+ 	void Calculate()
+ 	{
+ 		readData();
+ 		tot=m1+m2+m3+m4+m5;
+ 		avrg=(float)tot/5.0f;
+ 	}
+ 	void ShowResult()
+ 	{
+ 		cout<<"\n\t\t\tSTUDENT INFORMATION";
+ 		cout<<"\n\t\t\t==========================";
+ 		cout<<"\nSno\t:"<<sno;
+ 		cout<<"\nName\t:"<<name;
+ 		cout<<"\nTotal\t:"<<tot;
+ 		cout<<"\nAvrg\t:"<<avrg;
+ 	}
+};
+int main()
+{
+ fstream f;
+ student s;
+ char wish;
+ 
+ f.open("StudentData.dat",ios::out);
+
+ do
+ {
+	s.Calculate();
+	f.write((char*)&s,sizeof(s));
+
+	cout<<"\n Do u want to continue:";
+	cin>>wish;
+
+ }while((wish=='y')||(wish=='Y'));
+ f.close();
+ }
+
+Read Object from a File
+---------------------------------
+Example
+------------
+#include<iostream.h>
+class Number
+{
+   private:
+       int n1,n2;
+   protected:
+       int m1,m2;
+
+   void read()
+     {
+         cout<<"\nEnter the value for n1:";
+         cin>>n1;
+         cout<<"\nEnter the value for n2:";
+         cin>>n2;
+     }
+
+   public:
+      void Sum()
+        {
+		   read();
+           cout<<"\nSum n1 and n2 :"<<(n1+n2);
+        }
+
+     void Avg()
+        {
+		   read();
+           cout<<"\nAverage n1 and n2 :"<<(n1+n2)/2;
+        }
+   int Max(int a, int b)
+     {
+         int res=(a>b)?a:b;
+          return (res);
+     }
+   int Min(int a, int b)
+     {
+         int res=(a<b)?a:b;
+          return (res);
+     }
+};
+class TestNumber : public Number
+{
+  public:
+   void read()
+    {
+     // cout<<"\nEnter the value for n1:";
+     // cin>>n1;  --> Error 'n1' is private member of class Number. It could not inherited
+     // cout<<"\nEnter the value for n2:";
+     // cin>>n2; --> Error 'n2' is private member of class Number. It could not inherited
+
+      cout<<"\nEnter the value for m1:";
+      cin>>m1;
+      cout<<"\nEnter the value for m2:";
+      cin>>m2;
+    }
+ void show()
+  {
+//    cout<<"\nn1 value is :"<<n1; --> Error 'n1' is private member of class Number. It could not inherited
+  //  cout<<"\nn2 value is :"<<n2;--> Error 'n1' is private member of class Number. It could not inherited
+    cout<<"\nm1 value is :"<<m1;
+    cout<<"\nm2 value is :"<<m2;
+  }
+};
+ int main()
+{
+   TestNumber t;
+   t.Sum();
+   t.Avg();
+   cout<<"\nThe max value in 15, 20 is :"<<t.Max(15,20);
+   cout<<"\nThe min value in 15, 20 is :"<<t.Min(15,20);
+   t.read();
+   t.show();
+   //cout<<"The value of m1 is :"<<t.m1;--> Error 'm1' is protected member cannot be accessed outside the class
+}
+
+Template
+-------------
+Templates are the foundation of generic programming, which involves writing code in a way that is 
+independent of any particular type.
+
+A template is a blueprint or formula for creating a generic class or a function. The library containers 
+like iterators and algorithms are examples of generic programming and have been developed using
+ template concept.
+Example
+------------
+#include<iostream.h>
+#include<conio.h>
+template<class C>
+C max(C x,C y)
+{
+ return (x>y) ?x : y;
+};
+
+int main()
+{
+	cout<<max(17,19)<<endl;
+	cout<<max(12.45,2.5)<<endl;
+	cout<<max('A','a')<<endl;
+}

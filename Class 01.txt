@@ -1,0 +1,180 @@
+q
+
+
+
+
+
+
+
+OBJECT ORIENTED PROGRAMMING (OOPs)
+The basic unit of OOP is a class, which encapsulates both the static attributes and dynamic behaviors within a "box", and specifies the public interface for using these boxes. Since the class is well-encapsulated (compared with the function), it is easier to reuse these classes. In other words, OOP combines the data structures and algorithms of a software entity inside the same box.
+    OOP languages permit higher level of abstraction for solving real-life problems. The traditional procedural language (such as C and Pascal) forces you to think in terms of the structure of the computer (e.g. memory bits and bytes, array, decision, loop) rather than thinking in terms of the problem you are trying to solve. The OOP languages (such as Java, C++, C#) let you think in the problem space, and use software objects to represent and abstract entities of the problem space to solve the problem.
+
+The procedural-oriented languages focus on procedures, with function as the basic unit. You need to first figure out all the functions and then think about how to represent data.
+
+The object-oriented languages focus on components that the user perceives, with objects as the basic unit. You figure out all the objects by putting all the data and operations that describe the user's interaction with the data.
+
+Object-Oriented technology has many benefits:
+----------------------------------------------------------------
+    Ease in software design as you could think in the problem space rather than the machine's bits and bytes. You are dealing with high-level concepts and abstractions. Ease in design leads to more productive software development.
+    Ease in software maintenance: object-oriented software are easier to understand, therefore easier to test, debug, and maintain.
+    Reusable software: you don't need to keep re-inventing the wheels and re-write the same functions for different situations. The fastest and safest way of developing a new application is to reuse existing codes - fully tested and proven codes.
+
+Components of OOPs
+==================	
+	1. Classes
+	2. Objects
+	3. Abstarction
+	4. Inheritance
+	5. Encapsulation
+	6. Polymorphism
+
+Class
+A class is a blueprint, template, or prototype that defines and describes the static attributes and dynamic behaviors common to all objects of the same kind.
+
+Object (or) Instance
+An instance is a realization of a particular item of a class. In other words, an instance is an instantiation of a class. All the instances of a class have similar properties, as described in the class definition.
+
+Information Hiding and Encapsulation
+-----------------------------------------------------
+A class encapsulates the static attributes and the dynamic behaviors into a "3-compartment box". Once a class is defined, you can seal up the "box" and put the "box" on the shelve for others to use and reuse. Anyone can pick up the "box" and use it in their application. This cannot be done in the traditional procedural-oriented language like C, as the static attributes (or variables) are scattered over the entire program and header files. You cannot "cut" out a portion of C program, plug into another program and expect the program to run without extensive changes.
+
+Abstraction
+-----------------
+Data abstraction refers to, providing only essential information to the outside world and hiding their background details, i.e., to represent the needed information in program without presenting the details.
+
+Inheritance
+----------------
+One of the most useful aspects of object-oriented programming is code reusability. As the name suggests Inheritance is the process of forming a new class from an existing class that is from the existing class called as base class, new class is formed called as derived class.
+
+Polymorphism
+--------------------
+The ability to use an operator or function in different ways in other words giving different meaning or functions to the operators or functions is called polymorphism. Poly refers to many. That is a single function or an operator functioning in many ways different upon the usage is called polymorphism.
+ 
+The concept of overloading is also a branch of polymorphism. When the existing operator or function is made to operate on new data type, it is said to be overloaded.
+
+History Of C++ Programming
+
+The C++ programming language has a history going back to 1979, when Bjarne Stroustrup was doing work for his Ph.D. thesis. One of the languages Stroustrup had the opportunity to work with was a language called Simula, which as the name implies is a language primarily designed for simulations. The Simula 67 language - which was the variant that Stroustrup worked with - is regarded as the first language to support the object-oriented programming paradigm. Stroustrup found that this paradigm was very useful for software development, however the Simula language was far too slow for practical use.
+
+Shortly thereafter, he began work on "C with Classes", which as the name implies was meant to be a superset of the C language. His goal was to add object-oriented programming into the C language, which was and still is a language well-respected for its portability without sacrificing speed or low-level functionality. His language included classes, basic inheritance, inlining, default function arguments, and strong type checking in addition to all the features of the C language.
+
+Sturcture of C++ Programming
+==============================
+#preprocessor Directives
+[class classname
+{
+}]
+
+
+main()
+{
+  codings
+}
+
+Few basic difference between C and C++ Programming
+=====================================================
+cout<< ---> insted of printf() we use cout<< and there is no format specifier needed here. All Escape sequence can be used.
+cin>> ---> insted of scanf() we use cin>> and there is no need to use format specifiers and & symbol here.
+we can declare variables anywhere in program.
+cout<<"Message";
+cout<<manipulators<<"Message";
+cout<<"Message"<<manipulators<<"Escape Sequences Message"<<variables;
+cout<<"\nThe value of n1 is : "<<n1<<"\nThe value of n2 is :"<<n2;
+cout<<"\nThe values are :"<<n1<<n2<<n3<<n4;
+Manipulators
+=============
+For a neat and formated output we use some manipulators in C++ Programming (cou<<) and are listed below
+1. endl
+2. dec
+3. oct
+4. hex
+5. setw()
+6. setbase()
+7. setfill()
+8.setpresicion()
+
+Example1:
+==========
+#include<iostream.h>
+int main()
+{
+ cout<<"Welcome to C++ Programming"<<endl<<"By CSC Computer Education Perundurai";
+ cout<<endl<<"Thank You";
+}
+Example2:
+==========
+#include<iostream.h>
+int main()
+{
+ int m1,m2,m3,m4,m5,tot;
+ char name[15];
+ float avrg;
+
+ cout<<"\nEnter the Student Name:";
+ cin>>name;
+ cout<<"\nEnter the Five Subject Marks:";
+ cin>>m1>>m2>>m3>>m4>>m5;
+ tot=m1+m2+m3+m4+m5;
+ avrg=(float)tot/5.0f;
+ cout<<"\n=================================";
+ cout<<"\n|\t STUDENT RESULT \t|";
+ cout<<"\n=================================";
+ cout<<"\nExam Report of \t:"<< name;
+ cout<<"\n----------------------------------";
+ cout<<"\nSubject1 \t:"<<m1<<"\nSubject2 \t:"<<m2<<"\nSubject3 \t:"<<m3<<"\nSubject4 \t:"<<m4<<"\nSubject5 \t:"<<m5;
+ cout<<"\n----------------------------------";
+ cout<<"\nTotal \t:"<<tot<<"\tAverage\t:"<<avrg;
+ cout<<"\n----------------------------------";
+}
+Example3
+=========
+#include<iostream.h>
+#include<iomanip.h>
+int main()
+{
+ int m1,m2,m3,m4,m5,tot;
+ char name[15];
+ float avrg;
+
+ cout<<"\nEnter the Student Name:";
+ cin>>name;
+ cout<<"\nEnter the Five Subject Marks:";
+ cin>>m1>>m2>>m3>>m4>>m5;
+ tot=m1+m2+m3+m4+m5;
+ avrg=(float)tot/5.0f;
+ cout<<setfill('0');
+ cout<<"\n=================================";
+ cout<<"\n|\t STUDENT RESULT \t|";
+ cout<<"\n=================================";
+ cout<<"\nExam Report of \t:"<< name;
+ cout<<"\n----------------------------------";
+ cout<<"\nSubject1 \t:"<<setw(3)<<m1<<"\nSubject2 \t:"<<setw(3)<<m2<<"\nSubject3 \t:"<<setw(3)<<m3<<"\nSubject4 \t:"<<setw(3)<<m4<<"\nSubject5 \t:"<<setw(3)<<m5;
+ cout<<"\n----------------------------------";
+ cout<<"\nTotal \t:"<<tot<<"\tAverage\t:"<<setprecision(5)<<avrg;
+ cout<<"\n----------------------------------";
+}
+
+Example4
+=========
+#include<iostream.h>
+#include<iomanip.h>
+int main()
+{
+ int n1,n2,n3;
+ cout<<"\nEnter any 3 Numbers:";
+ cin>>n1>>n2>>n3;
+
+ cout<<"\nThe First Number as Octal\t:"<<oct<<n1;
+ cout<<"\nThe First Number as Decimal\t:"<<dec<<n1;
+ cout<<"\nThe First Number as HexaDecimal\t:"<<hex<<n1;
+ cout<<"\n--------------------------------------------------------";
+ cout<<"\n All Numbers as Octal"<<setbase(8);
+ cout<<"\nFirst Number\t:"<<n1<<"\nSecond Number\t:"<<n2<<"\nThird Number\t:"<<n3;
+ cout<<"\n--------------------------------------------------------";
+ cout<<"\n All Numbers as Decimal"<<setbase(10);
+ cout<<"\nFirst Number\t:"<<n1<<"\nSecond Number\t:"<<n2<<"\nThird Number\t:"<<n3;
+ cout<<"\n--------------------------------------------------------";
+ cout<<"\n All Numbers as Hexa Decimal"<<setbase(16);
+ cout<<"\nFirst Number\t:"<<n1<<"\nSecond Number\t:"<<n2<<"\nThird Number\t:"<<n3;
+}

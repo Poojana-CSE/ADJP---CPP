@@ -1,0 +1,200 @@
+Scope Resolution Operator
+=====================
+#include<iostream.h>
+class Bank
+{
+  private:
+     int Balance,Accno;
+     char Name[20];
+  public:
+  void Get();
+  void Show();
+  void Withdraw(int);
+  void Deposite(int);
+};
+void Bank::Get() 
+  {
+       cout<<"\n Enter the AccountNumber:";
+       cin>>Accno;
+       cout<<"\n Enter the AccountName:";
+       cin>>Name;
+       cout<<"\n Enter the AccountBalance:";
+       cin>>Balance;
+   }
+   
+ void Bank::Show()
+   {
+       cout<<"\nAccount Number\t:"<<Accno;
+       cout<<"\nAccount Name\t:"<<Name;
+       cout<<"\nAccount Balance\t:"<<Balance;	          
+   } 
+ void Bank::Withdraw(int amt)
+   {
+      if(amt<=Balance)
+	    {
+		  Balance-=amt;
+		}
+   }
+ void Bank::Deposite(int amt)
+   {
+     Balance+=amt;
+   }    
+int main()
+  {
+      Bank b1;
+      b1.Get();
+	  b1.Show();
+	  
+	  b1.Deposite(15000);
+	  b1.Show();
+	  
+	  b1.Withdraw(6000);
+   	  b1.Show();
+  }
+
+Static member
+=============
+#include<iostream.h>
+class Customer
+{
+ int CusNo,BillAmount,Points;
+ char CusName[20];
+ public:
+  static int n;
+  void Bill()
+ {
+   CusNo=++n;
+   cout<<"\nEnter Customer Name:";
+   cin>>CusName;
+   cout<<"\nEnter Bill Value:";
+   cin>>BillAmount;
+   	if(BillAmount<=1000)
+    	Points=10;
+	else if((BillAmount>1000)&&(BillAmount<=2000))
+		Points=20;	 
+	else if((BillAmount>2000)&&(BillAmount<=3000))
+		Points=30;	 
+	else if((BillAmount>3000)&&(BillAmount<=4000))
+		Points=40;	 
+	else if((BillAmount>4000)&&(BillAmount<=5000))
+		Points=50;	 
+	else
+		Points=BillAmount*.05;	  
+
+ }
+  
+static void ShowCustomer(Customer c)
+{
+  cout<<"\n\t\t\tCustomer Informations";
+  cout<<"\n\t\t\t===================================";
+  cout<<"\nCustomer Number \t:"<<c.CusNo; 
+  cout<<"\nCustomer Name \t:"<<c.CusName;
+  cout<<"\nCustomer Bill Amt \t:"<<c.BillAmount;
+  cout<<"\nCustomer Points \t:"<<c.Points;
+} 
+};
+int Customer::n;
+int main()
+{
+  Customer c1,c2,c3;
+  c1.Bill();
+  c2.Bill();
+  c3.Bill();
+  
+  Customer::ShowCustomer(c1);	   
+  Customer::ShowCustomer(c2);
+  Customer::ShowCustomer(c3);
+}
+
+Friend Function
+============ 
+#include<iostream.h>
+#include<conio.h>
+class Bank
+{
+  private:
+     int Balance,Accno;
+     char Name[20];
+  public:
+  void get()
+    {
+       cout<<"\n Enter the AccountNumber:";
+       cin>>Accno;
+       cout<<"\n Enter the AccountName:";
+       cin>>Name;
+       cout<<"\n Enter the AccountBalance:";
+       cin>>Balance;
+}
+     friend void CheckBalance(Bank);
+     friend Bank WithDraw(Bank,int);
+};
+
+void CheckBalance(Bank d)
+  {
+	cout<<"\nAccount Number\t:"<<d.Accno;
+	cout<<"\nAccount Name\t:"<<d.Name;
+	cout<<"\nAvailable Balance\t:"<<d.Balance;
+  }
+  
+ Bank WithDraw(Bank d,int Amount)
+  {
+    if(d.Balance>=Amount)
+	 {
+        d.Balance=d.Balance-Amount;
+	 }
+	 else
+	 {
+	   cout<<"\nInSufficient Balance. Withdraw unsuccessfull";
+	 }  
+	 
+	 return d;
+  }
+int main()
+  {
+      Bank b1;
+      b1.get();
+      CheckBalance(b1);	 	 
+      b1=WithDraw(b1,1000);
+      CheckBalance(b1);
+  }
+
+Virtual Function
+==============
+#include<iostream.h>
+class Base
+{
+    public:
+    virtual void show();
+};
+
+class Derived: public Base
+{
+public:
+	void show()
+    {
+        cout << "\nThis is virtual Method";
+    }
+};
+
+int main()
+{
+    Derived d;
+    d.show();
+	
+}
+
+Template
+========
+#include<iostream.h>
+#include<conio.h>
+template<class D>
+D min(D x,D y)
+{
+return(x<y)?x:y;
+}
+int main()
+{
+cout<<min(45,12)<<endl;
+cout<<min(12.3,14.5)<<endl;
+cout<<min('K','k')<<endl;
+}

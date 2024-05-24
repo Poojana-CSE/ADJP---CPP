@@ -1,0 +1,837 @@
+                             
+Inheritance
+============
+1. Single Inheritance
+2. Multilevel Inheritance
+3. Hierarchicle Inheritance
+4. Multiple Inheritance
+5. Hybrid Inheritance
+
+Acces Specifier		Inside Class	     Inheritance      Outside Class
+======================================================================
+private			   Support	  	Not Support	Not Support	
+protect                                                 Support	    	Support		Not Support
+public			   Support	    	Support	  	Support
+======================================================================
+
+Example1 (Single Inheritance)
+
+#include<iostream.h>
+class CheckValue
+{
+  public:
+  
+  int Max(int n1,int n2)
+   {
+     return((n1>n2)?n1:n2);
+   }
+  int Min(int n1,int n2)
+   {
+     return((n1<n2)?n1:n2);
+   }
+  int IsEven(int n1)
+   {
+     return((n1%2==0)?1:0);
+   }
+  int IsOdd(int n1)
+   {
+     return((n1%2==1)?1:0);
+   }
+};
+
+class NumberSeries : public CheckValue
+{
+  public:
+  
+  void PrintOdd(int n)
+  {
+    cout<<"\n";
+    for(int i=1;i<=n;i+=2)
+	  cout<<" "<<i;
+  }	      
+  
+  void PrintEven(int n)
+  {
+  	cout<<"\n";
+    for(int i=2;i<=n;i+=2)
+	  cout<<" "<<i;
+  }	  
+    
+};
+int main()
+{
+
+	NumberSeries n1;
+	cout<<"\nThe Maximum value among 10,5 is :"<<n1.Max(10,5);
+	cout<<"\nThe Minimum value among 10,5 is :"<<n1.Min(10,5);
+	(n1.IsEven(10))?cout<<"\nGiven Number is an Even Number":cout<<"\nGiven Number is not an Even Number";
+	(n1.IsOdd(10))?cout<<"\nGiven Number is an Odd Number":cout<<"\nGiven Number is not an odd Number";
+	n1.PrintOdd(15);
+	n1.PrintEven(15);
+}
+
+Example2:
+#include<iostream.h>
+class CheckValue
+{
+  public:
+  
+  int Max(int n1,int n2)
+   {
+     return((n1>n2)?n1:n2);
+   }
+  int Min(int n1,int n2)
+   {
+     return((n1<n2)?n1:n2);
+   }
+  int IsEven(int n1)
+   {
+     return((n1%2==0)?1:0);
+   }
+  int IsOdd(int n1)
+   {
+     return((n1%2==1)?1:0);
+   }
+};
+
+class NumberSeries : public CheckValue
+{
+  public:
+  
+  void PrintOdd(int n)
+  {
+    cout<<"\n";
+    for(int i=1;i<=n;i+=2)
+	  cout<<" "<<i;
+  }	      
+  
+  void PrintEven(int n)
+  {
+  	cout<<"\n";
+    for(int i=2;i<=n;i+=2)
+	  cout<<" "<<i;
+  }	  
+    
+};
+class FindValue: public NumberSeries
+{
+   public:
+   void Sum(int n)
+   {
+     int sum=0;
+	 for(int i=1;i<=n;i++)
+	   sum+=i;
+	   
+	 cout<<"\nSum of "<< n <<" Values is :"<< sum; 
+   }
+   
+   void Fact(int n)
+   {
+     int fact=1;
+	 for(int i=1;i<=n;i++)
+	   fact*=i;
+	   
+	 cout<<"\nFactorial of "<< n <<" Values is :"<< fact; 
+   }   
+};
+int main()
+{
+
+	FindValue n1;
+	cout<<"\nThe Maximum value among 10,5 is :"<<n1.Max(10,5);
+	cout<<"\nThe Minimum value among 10,5 is :"<<n1.Min(10,5);
+	(n1.IsEven(10))?cout<<"\nGiven Number is an Even Number":cout<<"\nGiven Number is not an Even Number";
+	(n1.IsOdd(10))?cout<<"\nGiven Number is an Even Number":cout<<"\nGiven Number is not an Even Number";
+	n1.PrintOdd(15);
+	n1.PrintEven(15);
+	
+	n1.Sum(10);
+	n1.Fact(5);
+}
+
+Example 3:
+#include<iostream.h>
+class CheckValue
+{
+  public:
+  
+  int Max(int n1,int n2)
+   {
+     return((n1>n2)?n1:n2);
+   }
+  int Min(int n1,int n2)
+   {
+     return((n1<n2)?n1:n2);
+   }
+  int IsEven(int n1)
+   {
+     return((n1%2==0)?1:0);
+   }
+  int IsOdd(int n1)
+   {
+     return((n1%2==1)?1:0);
+   }
+};
+
+class NumberSeries : public CheckValue
+{
+  public:
+  
+  void PrintOdd(int n)
+  {
+    cout<<"\n";
+    for(int i=1;i<=n;i+=2)
+	  cout<<" "<<i;
+  }	      
+  
+  void PrintEven(int n)
+  {
+  	cout<<"\n";
+    for(int i=2;i<=n;i+=2)
+	  cout<<" "<<i;
+  }	  
+    
+};
+class FindValue: public CheckValue
+{
+   public:
+   void Sum(int n)
+   {
+     int sum=0;
+	 for(int i=1;i<=n;i++)
+	   sum+=i;
+	   
+	 cout<<"\nSum of "<< n <<" Values is :"<< sum; 
+   }
+   
+   void Fact(int n)
+   {
+     int fact=1;
+	 for(int i=1;i<=n;i++)
+	   fact*=i;
+	   
+	 cout<<"\nFactorial of "<< n <<" Values is :"<< fact; 
+   }   
+};
+int main()
+{
+
+	NumberSeries n1;
+	cout<<"\nThe Maximum value among 10,5 is :"<<n1.Max(10,5);
+	cout<<"\nThe Minimum value among 10,5 is :"<<n1.Min(10,5);
+	(n1.IsEven(10))?cout<<"\nGiven Number is an Even Number":cout<<"\nGiven Number is not an Even Number";
+	(n1.IsOdd(10))?cout<<"\nGiven Number is an Even Number":cout<<"\nGiven Number is not an Even Number";
+	n1.PrintOdd(15);
+	n1.PrintEven(15);
+   cout<<"\n========================================================";	  
+	FindValue n2;
+	cout<<"\nThe Maximum value among 10,5 is :"<<n2.Max(10,5);
+	cout<<"\nThe Minimum value among 10,5 is :"<<n2.Min(10,5);
+	(n2.IsEven(10))?cout<<"\nGiven Number is an Even Number":cout<<"\nGiven Number is not an Even Number";
+	(n2.IsOdd(10))?cout<<"\nGiven Number is an Even Number":cout<<"\nGiven Number is not an Even Number";
+
+	n2.Sum(10);
+	n2.Fact(5);
+	}
+	   
+Example4:
+#include<iostream.h>
+class CheckValue
+{
+  public:
+  
+  int Max(int n1,int n2)
+   {
+     return((n1>n2)?n1:n2);
+   }
+  int Min(int n1,int n2)
+   {
+     return((n1<n2)?n1:n2);
+   }
+  int IsEven(int n1)
+   {
+     return((n1%2==0)?1:0);
+   }
+  int IsOdd(int n1)
+   {
+     return((n1%2==1)?1:0);
+   }
+};
+
+class NumberSeries 
+{
+  public:
+  
+  void PrintOdd(int n)
+  {
+    cout<<"\n";
+    for(int i=1;i<=n;i+=2)
+	  cout<<" "<<i;
+  }	      
+  
+  void PrintEven(int n)
+  {
+  	cout<<"\n";
+    for(int i=2;i<=n;i+=2)
+	  cout<<" "<<i;
+  }	  
+    
+};
+class FindValue :public CheckValue, public NumberSeries
+{
+   public:
+   void Sum(int n)
+   {
+     int sum=0;
+	 for(int i=1;i<=n;i++)
+	   sum+=i;
+	   
+	 cout<<"\nSum of "<< n <<" Values is :"<< sum; 
+   }
+   
+   void Fact(int n)
+   {
+     int fact=1;
+	 for(int i=1;i<=n;i++)
+	   fact*=i;
+	   
+	 cout<<"\nFactorial of "<< n <<" Values is :"<< fact; 
+   }   
+};
+int main()
+{
+
+	FindValue n1;
+	cout<<"\nThe Maximum value among 10,5 is :"<<n1.Max(10,5);
+	cout<<"\nThe Minimum value among 10,5 is :"<<n1.Min(10,5);
+	(n1.IsEven(10))?cout<<"\nGiven Number is an Even Number":cout<<"\nGiven Number is not an Even Number";
+	(n1.IsOdd(10))?cout<<"\nGiven Number is an Even Number":cout<<"\nGiven Number is not an Even Number";
+	n1.PrintOdd(15);
+	n1.PrintEven(15);
+	n1.Sum(10);
+	n1.Fact(5);
+	   
+}
+
+Example 5: 
+#include<iostream.h>
+class CheckValue
+{
+  public:
+  
+  int Max(int n1,int n2)
+   {
+     return((n1>n2)?n1:n2);
+   }
+  int Min(int n1,int n2)
+   {
+     return((n1<n2)?n1:n2);
+   }
+  int IsEven(int n1)
+   {
+     return((n1%2==0)?1:0);
+   }
+  int IsOdd(int n1)
+   {
+     return((n1%2==1)?1:0);
+   }
+};
+
+class NumberSeries 
+{
+  public:
+  
+  void PrintOdd(int n)
+  {
+    cout<<"\n";
+    for(int i=1;i<=n;i+=2)
+	  cout<<" "<<i;
+  }	      
+  
+  void PrintEven(int n)
+  {
+  	cout<<"\n";
+    for(int i=2;i<=n;i+=2)
+	  cout<<" "<<i;
+  }	  
+    
+};
+class FindValue :public CheckValue, public NumberSeries
+{
+   public:
+   void Sum(int n)
+   {
+     int sum=0;
+	 for(int i=1;i<=n;i++)
+	   sum+=i;
+	   
+	 cout<<"\nSum of "<< n <<" Values is :"<< sum; 
+   }
+   
+   void Fact(int n)
+   {
+     int fact=1;
+	 for(int i=1;i<=n;i++)
+	   fact*=i;
+	   
+	 cout<<"\nFactorial of "<< n <<" Values is :"<< fact; 
+   }   
+};
+class FindArea: public FindValue
+{
+  public :
+  void Area(int n)
+  {
+    cout<<"\nThe Area of Square is :"<<(n*n);
+  }
+  void Area(int l, int b)
+  {
+    cout<<"\nThe Area of Rectangle is :"<<(l*b);
+  }
+  void Area(float n)
+  {
+    cout<<"\nThe Area of Circle is :"<<(3.1415*n*n);
+  }
+
+};
+int main()
+{
+
+	FindArea n1;
+	cout<<"\nThe Maximum value among 10,5 is :"<<n1.Max(10,5);
+	cout<<"\nThe Minimum value among 10,5 is :"<<n1.Min(10,5);
+	(n1.IsEven(10))?cout<<"\nGiven Number is an Even Number":cout<<"\nGiven Number is not an Even Number";
+	(n1.IsOdd(10))?cout<<"\nGiven Number is an Even Number":cout<<"\nGiven Number is not an Even Number";
+	n1.PrintOdd(15);
+	n1.PrintEven(15);
+	n1.Sum(10);
+	n1.Fact(5);
+
+    n1.Area(10);
+	n1.Area(10,5);
+	n1.Area(10.5f);	      
+}
+
+
+
+For Extra Reference
+Example1:
+--------------
+#include<iostream.h>
+#include<string.h>
+class Customer
+{
+ protected
+  int AccNo,AccBalance; 
+  char AccName[20],AccType;
+ public:  
+ void Head()
+  {
+    cout<<"\n\t\t\tCUSTOMER DETAILS";
+	cout<<"\n\t\t\t=======================\n\n";
+	cout<<"\n------------------------------------------";
+	cout<<"\nAccNo\tName\t\tAccType\tBalance";
+	cout<<"\n------------------------------------------";
+  }
+ void NewCus()
+ {
+   cout<<"\nEnter the Customer Number:";
+   cin>>AccNo;
+   cout<<"\nEnter the Customer Name:";
+   cin>>AccName;
+   cout<<"\nEnter the Account Type:";
+   cin>>AccType;
+   cout<<"\nEnter the Initial Deposit Amount:";
+   cin>>AccBalance;
+  } 
+ void NewCus(int AccNum,char *Name,char Type,int Bal)
+  {
+   AccNo=AccNum;
+   strcpy(AccName,Name);
+   AccType=Type;
+   AccBalance=Bal;
+  } 
+ void ViewCus()
+  {
+
+    cout<<"\n"<<AccNo<<"\t"<<AccName<<"\t\t"<<AccType<<"\t"<<AccBalance;	
+	cout<<"\n------------------------------------------";
+  }  
+   
+};
+class Trans : public Customer
+{
+  public:
+   void Deposite(int Amt)
+     {
+	   AccBalance+=Amt;
+	   cout<<"\n\t\t\tTransaction Alert";
+	   cout<<"\n\t\t\t=========================";
+	   cout<<"\n Dear,"<<AccName<<" The Balance After Transaction is : "<<AccBalance<<"\n\n";
+
+	 }
+   void Withdraw(int Amt)
+     {
+ 	   cout<<"\n\t\t\tTransaction Alert";
+	   cout<<"\n\t\t\t=========================";
+
+	   if(Amt<=AccBalance)
+	    AccBalance-=Amt;
+	   else	   	   
+		cout<<"\nInsufficient Balance. Transaction not Completed..";
+	
+		cout<<"\n Dear,"<<AccName<<" The Balance After Transaction is : "<<AccBalance<<"\n\n";
+
+	 }	    
+};
+int main()
+{
+  Trans c1,c2;
+  c1.NewCus();
+  c2.NewCus(1000,"Kumar",'C',15000);  
+  c1.Head();
+  c1.ViewCus();	    
+  c2.ViewCus();	   
+  
+  c1.Deposite(15000);
+  c2.Withdraw(20000);
+  c2.Withdraw(2000);  
+}
+
+Example 2:
+#include<iostream.h>
+#include<iomanip.h>
+#include<string.h>
+class Customer
+{
+ protected:
+  int AccNo,AccBalance,AtmPin;
+  char AccName[20];
+ public:  
+ void Head()
+  {
+    cout<<"\n\t\t\tCUSTOMER DETAILS";
+	cout<<"\n\t\t\t=======================\n\n";
+	cout<<"\n|-------------------------------|";
+	cout<<"\n|AccNo|\tName\t\t|Balance\t|";
+	cout<<"\n|-------------------------------|";
+  }
+ void NewCus()
+ {
+   cout<<"\nEnter the Customer Number:";
+   cin>>AccNo;
+   cout<<"\nEnter the Customer Name:";
+   cin>>AccName;
+   cout<<"\nEnter the Initial Deposit Amount:";
+   cin>>AccBalance;
+   AtmPin=1234;
+  } 
+ void NewCus(int AccNum,char *Name,int Bal)
+  {
+   AccNo=AccNum;
+   strcpy(AccName,Name);
+   AccBalance=Bal;
+   AtmPin=1234;
+  } 
+ void ViewCus()
+  {
+
+    cout<<"\n|"<<AccNo<<"\t|"<<AccName<<"\t\t|"<<AccBalance<<"\t|";	 
+	cout<<"\n|-------------------------------|";
+  }  
+   
+};
+class Trans : public Customer
+{
+  public:
+   void Deposite(int Amt)
+     {
+	   AccBalance+=Amt;
+	   cout<<"\n\t\t\tTransaction Alert";
+	   cout<<"\n\t\t\t=========================";
+	   cout<<"\n Dear,"<<AccName<<" The Balance After Transaction is : "<<AccBalance<<"\n\n";
+
+	 }
+   void Withdraw(int Amt)
+     {
+ 	   cout<<"\n\t\t\tTransaction Alert";
+	   cout<<"\n\t\t\t=========================";
+
+	   if(Amt<=AccBalance)
+	    AccBalance-=Amt;
+	   else	   	   
+		cout<<"\nInsufficient Balance. Transaction not Completed..";
+	
+		cout<<"\n Dear,"<<AccName<<" The Balance After Transaction is : "<<AccBalance<<"\n\n";
+
+	 }	    
+};
+class ATM: public Trans
+{
+public:
+int PIN;
+  int CheckPin()
+   {
+   	cout<<"\n Welcome Dear,"<<AccName<<" Please enter your 4 Digit Pin";
+	cin>>PIN;
+	return (PIN==AtmPin)?1:0;
+   }
+void  setPin(int p)
+{
+  if (PIN==1234)
+   PIN=p;
+   else if(CheckPin())
+    PIN=p;
+   else
+      cout<<"\nThe pin you are Entered is Wrong!!!";
+}
+
+};
+int main()
+{
+  ATM c1;
+  c1.NewCus();
+  c1.Head();
+  c1.ViewCus();	    
+  
+  c1.Deposite(15000);
+  c1.Withdraw(2000);  
+  c1.setPin(5432);
+}
+
+Example3:
+===========
+#include<iostream.h>
+#include<iomanip.h>
+#include<string.h>
+class Customer
+{
+ protected:
+  int AccNo,AccBalance,AtmPin;
+  char AccName[20];
+ public:  
+ void Head()
+  {
+    cout<<"\n\t\t\tCUSTOMER DETAILS";
+	cout<<"\n\t\t\t=======================\n\n";
+	cout<<"\n|-------------------------------|";
+	cout<<"\n|AccNo|\tName\t\t|Balance\t|";
+	cout<<"\n|-------------------------------|";
+  }
+ void NewCus()
+ {
+   cout<<"\nEnter the Customer Number:";
+   cin>>AccNo;
+   cout<<"\nEnter the Customer Name:";
+   cin>>AccName;
+   cout<<"\nEnter the Initial Deposit Amount:";
+   cin>>AccBalance;
+   AtmPin=1234;
+  } 
+ void NewCus(int AccNum,char *Name,int Bal)
+  {
+   AccNo=AccNum;
+   strcpy(AccName,Name);
+   AccBalance=Bal;
+   AtmPin=1234;
+  } 
+ void ViewCus()
+  {
+
+    cout<<"\n|"<<AccNo<<"\t|"<<AccName<<"\t\t|"<<AccBalance<<"\t|";	 
+	cout<<"\n|-------------------------------|";
+  }  
+   
+};
+class Trans: public Customer 
+{
+  public:
+   void Deposite(int Amt)
+     {
+	   AccBalance+=Amt;
+	   cout<<"\n\t\t\tTransaction Alert";
+	   cout<<"\n\t\t\t=========================";
+	   cout<<"\n Dear,"<<AccName<<" The Balance After Transaction is : "<<AccBalance<<"\n\n";
+
+	 }
+   void Withdraw(int Amt)
+     {
+ 	   cout<<"\n\t\t\tTransaction Alert";
+	   cout<<"\n\t\t\t=========================";
+
+	   if(Amt<=AccBalance)
+	    AccBalance-=Amt;
+	   else	   	   
+		cout<<"\nInsufficient Balance. Transaction not Completed..";
+	
+		cout<<"\n Dear,"<<AccName<<" The Balance After Transaction is : "<<AccBalance<<"\n\n";
+
+	 }	    
+};
+class ATM: public Customer
+{
+public:
+int PIN;
+  int CheckPin()
+   {
+   	cout<<"\n Welcome Dear,"<<AccName<<" Please enter your 4 Digit Pin";
+	cin>>PIN;
+	return (PIN==AtmPin)?1:0;
+   }
+void  setPin(int p)
+{
+  if (PIN==1234)
+   PIN=p;
+   else if(CheckPin())
+    PIN=p;
+   else
+      cout<<"\nThe pin you are Entered is Wrong!!!";
+}
+
+};
+int main()
+{
+  ATM c1;
+  c1.NewCus();
+  c1.Head();
+  c1.ViewCus();	    
+  c1.setPin(5432);
+  
+ Trans c2;
+ c2.NewCus(1234,"Jeeva ",25000);
+ c2.Deposite(2000);
+ c2.Withdraw(9000);
+}
+
+Example 4
+==========
+#include<iostream.h>
+#include<iomanip.h>
+#include<string.h>
+class Customer
+{
+ protected:
+  int AccNo,AccBalance,AtmPin;
+  char AccName[20];
+ public:  
+ void Head()
+  {
+    cout<<"\n\t\t\tCUSTOMER DETAILS";
+	cout<<"\n\t\t\t=======================\n\n";
+	cout<<"\n|-------------------------------|";
+	cout<<"\n|AccNo|\tName\t\t|Balance\t|";
+	cout<<"\n|-------------------------------|";
+  }
+ void NewCus()
+ {
+   cout<<"\nEnter the Customer Number:";
+   cin>>AccNo;
+   cout<<"\nEnter the Customer Name:";
+   cin>>AccName;
+   cout<<"\nEnter the Initial Deposit Amount:";
+   cin>>AccBalance;
+   AtmPin=1234;
+  } 
+ void NewCus(int AccNum,char *Name,int Bal)
+  {
+   AccNo=AccNum;
+   strcpy(AccName,Name);
+   AccBalance=Bal;
+   AtmPin=1234;
+  } 
+ void ViewCus()
+  {
+
+    cout<<"\n|"<<AccNo<<"\t|"<<AccName<<"\t\t|"<<AccBalance<<"\t|";	 
+	cout<<"\n|-------------------------------|";
+  }  
+   
+};
+class Trans: public Customer 
+{
+  public:
+   void Deposite(int Amt)
+     {
+	   AccBalance+=Amt;
+	   cout<<"\n\t\t\tTransaction Alert";
+	   cout<<"\n\t\t\t=========================";
+	   cout<<"\n Dear,"<<AccName<<" The Balance After Transaction is : "<<AccBalance<<"\n\n";
+
+	 }
+   void Withdraw(int Amt)
+     {
+ 	   cout<<"\n\t\t\tTransaction Alert";
+	   cout<<"\n\t\t\t=========================";
+
+	   if(Amt<=AccBalance)
+	    AccBalance-=Amt;
+	   else	   	   
+		cout<<"\nInsufficient Balance. Transaction not Completed..";
+	
+		cout<<"\n Dear,"<<AccName<<" The Balance After Transaction is : "<<AccBalance<<"\n\n";
+
+	 }	    
+};
+class Denamination
+{
+  public:
+  void Denam(int amt)
+  {
+    int A2000=0,A500=0,A200=0,A100=0;
+
+
+	A2000=amt/2000;
+	amt%=2000;
+	if(A2000>0)
+	cout<<"\n 2000\tX\t"<<A2000<<" = " <<setw(7)<<A2000*2000;
+
+	A500=amt/500;
+	amt%=500;
+	if(A500>0)
+	cout<<"\n 500\tX\t"<<A500<<" = "<<setw(7) <<A500*500;
+
+	A200=amt/200;
+	amt%=200;
+	if(A200>0)
+	cout<<"\n 200\tX\t"<<A200<<" = "<<setw(7) <<A200*200;
+
+	A100=amt/100;
+	amt%=100;
+	if(A100>0)
+	cout<<"\n 100\tX\t"<<A100<<" = " <<setw(7)<<A100*100;
+  }  
+};
+class ATM:public Denamination,public Trans
+{
+public:
+int PIN;
+  int CheckPin()
+   {
+   	cout<<"\n Welcome Dear,"<<AccName<<" Please enter your 4 Digit Pin";
+	cin>>PIN;
+	return (PIN==AtmPin)?1:0;
+   }
+void  setPin(int p)
+{
+  if (PIN==1234)
+   PIN=p;
+   else if(CheckPin())
+    PIN=p;
+   else
+      cout<<"\nThe pin you are Entered is Wrong!!!";
+}
+};
+int main()
+{
+  ATM c1;
+  c1.NewCus();
+  c1.Head();
+  c1.ViewCus();	    
+  c1.setPin(5432);
+  
+  c1.Withdraw(5700);
+  c1.Denam(5700);
+}
+
+
+

@@ -1,0 +1,175 @@
+File
+===
+
+File Write
+----------
+#include<iostream.h>
+#include<fstream.h>
+int main()
+{
+	char name[30],fname[10];
+	int roll;
+    ofstream t;
+
+	cout<<"\nEnter the File Name:";
+	cin>>fname;
+	 t.open(fname); //file creation
+
+	 cout<<"Enter the student Roll Number:";
+	 cin>>roll;
+
+	 cout<<"Enter the student Name:";
+	 cin>>name;
+
+	 t<<"\nStudent Information\n";
+	 t<<"\n=========================\n";
+	 t<<"Roll No\t:"<<roll<<endl;
+	 t<<"Name \t:"<<name<<endl;
+	t.close();
+}
+
+File Read
+-----------
+#include<iostream.h>
+#include<fstream.h>
+int main()
+{
+	ifstream inp;
+	char fname[20];
+	char ch;
+	cout<<"\n Enter the filename to Read:";
+	cin>>fname;
+
+	inp.open(fname);
+
+	while(!inp.eof())
+	{
+	ch=inp.get();
+	cout<<ch;
+	}
+	inp.close();
+}
+
+File Object Write
+=============
+#include<iostream.h>
+#include<fstream.h>
+class student
+{
+  private:
+  	int sno,m1,m2,m3,m4,m5,tot;
+  	float avrg;
+  	char name[10];
+ public:
+  	void readData()
+  	{
+
+  		cout<<"\nEnter the Sno";
+  		cin>>sno;
+  		cout<<"\nEnter the student name";
+  		cin>>name;
+
+  		cout<<"\nEnter the M1:";
+  		cin>>m1;
+  		cout<<"\nEnter the M2:";
+  		cin>>m2;
+		cout<<"\nEnter the M3:";
+  		cin>>m3;
+  		cout<<"\nEnter the M4:";
+  		cin>>m4;
+  		cout<<"\nEnter the M5:";
+  		cin>>m5;
+ 		tot=m1+m2+m3+m4+m5;
+ 		avrg=(float)tot/5.0f;
+ 	}
+ 	void ShowResult()
+ 	{
+ 		cout<<"\n\t\t\tSTUDENT INFORMATION";
+ 		cout<<"\n\t\t\t==========================";
+ 		cout<<"\nSno\t:"<<sno;
+ 		cout<<"\nName\t:"<<name;
+ 		cout<<"\nTotal\t:"<<tot;
+ 		cout<<"\nAvrg\t:"<<avrg;
+ 	}
+};
+int main()
+{
+ fstream f;
+ student s;
+ char wish,fname[15];
+ cout<<"\nEnter the File Name";
+ cin>>fname; 
+ f.open(fname,ios::out);
+
+ do
+ {
+	s.readData();
+	f.write((char*)&s,sizeof(s));
+
+	cout<<"\n Do u want to continue:";
+	cin>>wish;
+
+ }while((wish=='y')||(wish=='Y'));
+ f.close();
+ }
+
+File Obect Read
+=============
+#include<iostream.h>
+#include<fstream.h>
+class student
+{
+  private:
+  	int sno,m1,m2,m3,m4,m5,tot;
+  	float avrg;
+  	char name[10];
+  public:
+  	void readData()
+  	{
+
+  		cout<<"\nEnter the Sno";
+  		cin>>sno;
+  		cout<<"\nEnter the student name";
+  		cin>>name;
+
+  		cout<<"\nEnter the M1:";
+  		cin>>m1;
+  		cout<<"\nEnter the M2:";
+  		cin>>m2;
+		cout<<"\nEnter the M3:";
+  		cin>>m3;
+  		cout<<"\nEnter the M4:";
+  		cin>>m4;
+  		cout<<"\nEnter the M5:";
+  		cin>>m5;
+ 		tot=m1+m2+m3+m4+m5;
+ 		avrg=(float)tot/5.0f;
+ 	}
+ 	void ShowResult()
+ 	{
+ 		cout<<"\n\t\t\tSTUDENT INFORMATION";
+ 		cout<<"\n\t\t\t==========================";
+ 		cout<<"\nSno\t:"<<sno;
+ 		cout<<"\nName\t:"<<name;
+ 		cout<<"\nTotal\t:"<<tot;
+ 		cout<<"\nAvrg\t:"<<avrg;
+ 	}
+};
+int main()
+{
+ fstream f;
+ student s;
+ char fname[15];
+ cout<<"\nEnter the File Name:";
+cin>>fname;
+ f.open(fname,ios::in);
+
+while(f.read((char*)&s,sizeof(s))!=NULL)
+ {
+    s.ShowResult();	
+ }
+ f.close();
+ }
+
+
+

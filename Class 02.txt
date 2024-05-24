@@ -1,0 +1,412 @@
+Class and Objects
+-------------------
+A class is a template or a model. It is a collection of variables and 
+functions and extensible to an object. It has an inbuild behaviour 
+to protect it's members known as access specifiers.
+1. private
+2. protected
+3. public 
+by default all members are private.
+
+Example1:
+==========
+#include<iostream.h>
+#include<string.h>
+class People
+{
+ private:
+   int age,phone;
+   char gender,mstatus;
+ public:
+   char name[15],fname[15],mname[15],sname[15];
+
+   void NewInfo()
+    {
+	cout<<"\nPlease Provide your Personal Informations:";
+	cout<<"\nEnter your Name:";
+	cin>>name;
+	cout<<"\nEnter your Father Name:";
+	cin>>fname;
+	cout<<"\nEnter your Mother Name:";
+	cin>>mname;
+	cout<<"\nEnter your Age:";
+	cin>>age;
+	cout<<"\nEnter your Gender [M/F/T]:";
+	cin>>gender;
+	cout<<"\nEnter your Marital Status:[S/M]";
+	cin>>mstatus;
+          if((mstatus=='M')||(mstatus=='m'))
+           {
+             cout<<"\nEnter your Spouse Name:";
+             cin>>sname;
+           }
+	cout<<"\nEnter your phone Number:";
+	cin>>phone;
+    }
+ void MyInfo()
+   {
+	cout<<"\n=====================================";
+	cout<<"\nPERSONAL INFORMATION";
+	cout<<"\n=====================================";
+	cout<<"\nName\t\t:"<<name;
+	cout<<"\nFather Name\t:"<<fname;
+	cout<<"\nMother Name\t:"<<mname;
+	cout<<"\nMarital Status\t:";
+	((mstatus=='M')||(mstatus=='m'))?	
+           cout<<"Married":cout<<"Single";
+          if((mstatus=='M')||(mstatus=='m'))
+             cout<<"\nSpouse Name\t:"<<sname;
+	cout<<"\nAge\t\t:"<<age;
+	cout<<"\nGender\t\t:"<<gender;
+	cout<<"\nPhone\t\t:"<<phone;
+   }
+};
+int main()
+{
+  People p;
+  p.NewInfo();
+  p.MyInfo();
+}
+
+Example2
+------------
+#include<iostream.h>
+#include<string.h>
+class People
+{
+ private:
+   int age,phone;
+   char gender,mstatus;
+ public:
+   char name[15],fname[15],mname[15],sname[15];
+
+   void NewInfo()
+    {
+	cout<<"\nPlease Provide your Personal Informations:";
+	cout<<"\nEnter your Name:";
+	cin>>name;
+	cout<<"\nEnter your Father Name:";
+	cin>>fname;
+	cout<<"\nEnter your Mother Name:";
+	cin>>mname;
+	cout<<"\nEnter your Age:";
+	cin>>age;
+	cout<<"\nEnter your Gender [M/F/T]:";
+	cin>>gender;
+	cout<<"\nEnter your Marital Status:[S/M]";
+	cin>>mstatus;
+          if((mstatus=='M')||(mstatus=='m'))
+           {
+             cout<<"\nEnter your Spouse Name:";
+             cin>>sname;
+           }
+	cout<<"\nEnter your phone Number:";
+	cin>>phone;
+    }
+ void MyInfo()
+   {
+	cout<<"\n"<<name<<"\t"<<fname<<"\t"<<mname;
+        ((mstatus=='M')||(mstatus=='m'))?cout<<"\tMarried":cout<<"\tSingle";
+          if((mstatus=='M')||(mstatus=='m'))
+             cout<<"\t"<<sname;
+          else
+             cout<<"\tsingle";
+	cout<<"\t"<<age<<"\t"<<gender<<"\t"<<phone;
+   }
+};
+int main()
+{
+  People p[2];
+  for(int i=0;i<2;i++)
+    p[i].NewInfo();
+ cout<<"\n\t\t\tPERSONAL INFORMATION";
+ cout<<"\n\t=================================";
+ cout<<"\n--------------------------------------------------------------------------------\n";
+ cout<<"\nName\tFName\tMName\tMStatus\tSName\tAge\tGender\tPhone";
+ cout<<"\n--------------------------------------------------------------------------------\n";
+  for(int i=0;i<2;i++)
+    p[i].MyInfo();
+}
+
+Overloading (Polymorphism)
+==========================
+You can have multiple definitions for the same function name in the 
+same scope. The definition of the function must differ from 
+each other by the types and/or the number of arguments in
+ the argument list. You can not overload function declarations 
+that differ only by return type.
+
+Types
+=======
+  1. Function Overloading
+  2. Method Overloading
+  3. Constructor Overloading
+  4. Operator Overloading
+
+Function Overloading
+--------------------
+#include<iostream.h>
+void Line()
+{
+  cout<<"\n--------------------------------------------------------------------------------------------";
+}
+void Line(char c)
+{
+  cout<<"\n";
+  for(int i=1;i<=55;i++)
+   cout<<c;
+}
+void Line(char *head,char ch,int ln)
+{
+  if(ln==1)
+   {
+     cout<<endl<<head;
+     Line(ch);
+   }
+  else if(ln==2)
+   {
+     Line(ch);	
+     cout<<endl<<head;
+     Line(ch);
+   }
+  else
+     cout<<endl<<head;
+}
+
+int main()
+{
+  Line();
+  cout<<"\n\n\n";
+
+  Line("SNo\tName\tFname\tAge\tGender\tMStatus\tAddress",'*',1);
+  cout<<"\n\n\n";
+
+  Line("ENo\tEmpName\tDesignation\tAge\tGender\tSalary",'=',2);
+  cout<<"\n\n\n";
+
+  Line('^');
+  cout<<"\n\n\n";
+}
+
+Method OverLoading
+====================
+#include<iostream.h>
+class Area
+{
+ public:
+  void area()
+  {
+    int a ;
+    cout<<"\nEnter the length";
+    cin>>a;
+    cout<<"\nThe Area of Square is : "<<(a*a);
+  }
+  void area(int r)
+  {
+    cout<<"\nThe Area of Circle is : "<<(3.1415*r*r);
+  }
+  void area(int l,int b)
+  {
+    cout<<"\nThe Area of Rectangle is : "<<(l*b);
+  }
+   void area(float b,float h)
+  {
+    cout<<"\nThe Area of Triangle is : "<<(0.5*b*h);
+  }
+};
+int main()
+{
+  Area ar;
+  ar.area();
+  ar.area(10);
+  ar.area(5,10);
+  ar.area(5.0f,10.0f);
+}
+
+Constructor
+=============
+A constructor is a specil function invoked automattically at the time of object creation used to initialize the class members.
+
+1. Name should be same as class.
+2. Should declared public
+3. It has no return type (even void)
+4. Can have parameters
+5. Can be over loaded
+
+Types
+
+1. Default Constructor
+2. Parameterized Constructor
+3. Copy Constructor
+
+Destructor
+--------------
+Automatically called at the End of program execution.
+Used to reset the values of class members.
+
+~ class Name
+Has no parameters & Return type
+Can't Overloaded
+
+#include<iostream.h>
+#include<string.h>
+class Bank
+{
+ private:
+   int AccNo,AccBalance,MinBalance;
+   char AccName[10],AccType;
+ public:
+   int PA,CA,SA;
+	Bank()
+	 {
+	  cout<<"\nEnter the Customer Name:"; 
+	  cin>>AccName;
+	  cout<<"\nEnter the Accout Type [C/S/P]";
+	  cin>>AccType;
+	  if((AccType=='C')||(AccType=='c'))
+	   {
+	     AccNo=CA++;
+		MinBalance=10000;
+	   }
+	   else if((AccType=='P')||(AccType=='p'))
+	   {
+	     AccNo=PA++;
+		 MinBalance=0;
+	   }
+	  else if((AccType=='S')||(AccType=='s'))
+	   {
+	     AccNo=SA++;
+		 MinBalance=5000;
+	   }
+	  cout<<"\nEnter the Deposit Amount(Minimum):"<<MinBalance<<" Rupees";
+	  cin>>AccBalance; 
+	 } 
+  void ViewInfo()
+  {
+    cout<<"\n\t\t\tCUSTOMER INFORMATION";
+	cout<<"\n\t\t\t=================================";
+	cout<<"\nAccNumber : "<<AccNo<<"\t\tAcc Name : "<<AccName;
+	cout<<"\n-----------------------------------------------------------------";
+	cout<<"\nAcc Type\t: ";
+	if((AccType=='C')||(AccType=='c'))
+	 cout<<"Current Account";     
+	else if((AccType=='P')||(AccType=='p'))
+	 cout<<"Personal Account";
+	else if((AccType=='S')||(AccType=='s'))
+	 cout<<"Salary Account";
+ 	 cout<<"\nAcc Balance \t:"<<AccBalance; 
+	 cout<<"\n-----------------------------------------------------------------\n\n";
+  }
+ ~Bank()
+  {
+   AccNo=0;AccBalance=0;MinBalance=0;
+   strcpy(AccName," ");
+   AccType=' ';
+   cout<<"\nCleared";
+  }
+};
+int main()
+{
+ Bank P1,P2,P3;
+ Bank C1,C2;
+ Bank S1,S2;
+ P1.ViewInfo();
+ P2.ViewInfo();
+ P3.ViewInfo();
+ 
+ C1.ViewInfo();
+ C2.ViewInfo();
+ 
+ S1.ViewInfo();
+ S2.ViewInfo();
+}
+
+#include<iostream.h>
+#include<string.h>
+class Bank
+{
+ private:
+ 
+   int AccNo,AccBalance,MinBalance;
+   char AccName[10],AccType;
+ public:
+   int PA,CA,SA;
+	Bank()
+	 {
+	  cout<<"\nEnter the Customer Name:"; 
+	  cin>>AccName;
+	  cout<<"\nEnter the Accout Type [C/S/P]";
+	  cin>>AccType;
+	  if((AccType=='C')||(AccType=='c'))
+	   {
+	     AccNo=CA++;
+		 MinBalance=10000;
+	   }
+	   else if((AccType=='P')||(AccType=='p'))
+	   {
+	     AccNo=PA++;
+		 MinBalance=0;
+	   }
+	  else if((AccType=='S')||(AccType=='s'))
+	   {
+	     AccNo=SA++;
+		 MinBalance=5000;
+	   }
+	  cout<<"\nEnter the Deposit Amount(Minimum):"<<MinBalance<<" Rupees";
+	  cin>>AccBalance; 
+	 }
+  Bank(int Acc,char *AcNa, char AcTy, int MBal, int AcBal)
+  {
+    AccNo=Acc;
+	strcpy(AccName,AcNa);
+	AccType=AcTy;
+	MinBalance=MBal;
+	AccBalance=AcBal;    
+  }
+   
+  Bank(Bank *b)
+   {
+    AccNo=b->AccNo+1;
+	cout<<"\nEnter the Account holder Name:";
+	cin>>AccName;
+	AccType=b->AccType;
+	MinBalance=b->MinBalance;
+	cout<<"\nEner the Deposit amount Minimum "<<MinBalance<<")";
+	cin>>AccBalance;    
+        
+   } 
+  void ViewInfo()
+  {
+    cout<<"\n\t\t\tCUSTOMER INFORMATION";
+	cout<<"\n\t\t\t=================================";
+	cout<<"\nAccNumber : "<<AccNo<<"\t\tAcc Name : "<<AccName;
+	cout<<"\n-----------------------------------------------------------------";
+	cout<<"\nAcc Type\t: ";
+	if((AccType=='C')||(AccType=='c'))
+	 cout<<"Current Account";
+	else if((AccType=='P')||(AccType=='p'))
+	 cout<<"Personal Account";
+	else if((AccType=='S')||(AccType=='s'))
+	 cout<<"Salary Account";
+ 	 cout<<"\nAcc Balance \t:"<<AccBalance; 
+	 cout<<"\n-----------------------------------------------------------------\n\n";
+  }
+ 
+ ~Bank()
+  {
+   AccNo=0,AccBalance=0,MinBalance=0;
+   strcpy(AccName,"--");
+   AccType='-';
+   cout<<"\nCleared";
+  }
+};
+int main()
+{
+ Bank P1;
+ Bank P2(1000,"Bala",'P',0,15000);
+ Bank P3(&P2);
+ P1.ViewInfo();
+ P2.ViewInfo();
+ P3.ViewInfo();
+ 
+}

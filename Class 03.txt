@@ -1,0 +1,81 @@
+Operator Overloading
+------------------------------
+You can redefine or overload most of the built-in operators available in C++. Thus a programmer can use operators with user-defined types as well.
+
+Overloaded operators are functions with special names the keyword operator followed by the symbol for the operator being defined. Like any other function, an overloaded operator has a return type and a parameter list.
+
+Operators Cannot be Overloaded
+---------------------------------------------
+:: Scope resolution Operator
+, Comma Operator
+.* Pointer Operator
+?: Conditional Operator
+. Operator
+Sizeof operator
+
+Following are some restrictions to be kept in mind while implementing operator overloading.
+
+1. Precedence and Associativity of an operator cannot be changed.
+2. Arity (numbers of Operands) cannot be changed. Unary operator remains unary, binary remains binary etc.
+3. No new operators can be created, only existing operators can be overloaded.
+
+
+Syntax
+======
+returnType operator <OperatrorSymbol>()
+{
+  //code
+}
+#include<iostream.h>
+class Customer
+{
+ private:
+ int AccNo;
+ float AccBalance;
+ char Name[20];
+ 
+ void Report()
+  {
+    cout<<"\n\t\t\t CUSTOMER REPORT";
+	cout<<"\n\t\t\t ===================";
+	cout<<"\nAccNo\t\tAccName\t\t\tBalance";
+	cout<<"\n---------------------------------------------------";
+  }
+ public:
+   Customer()
+   {
+     cout<<"Enter the Customer AccNo:";
+	 cin>>AccNo;
+     cout<<"Enter the Customer Name:";
+	 cin>>Name;
+     cout<<"Enter the Customer AccBalanece:";
+	 cin>>AccBalance;
+   } 
+   
+  void ViewCusInfo()
+  { 
+    Report();
+    cout<<"\n"<<AccNo<<"\t\t"<<Name<<"\t\t\t"<<AccBalance;
+  } 
+ Customer operator ++()
+ {
+   AccBalance+=AccBalance*0.10f;
+  
+ } 
+
+ Customer operator +=(float i)
+ {
+   AccBalance+=AccBalance*(i/100.0f);
+  
+ } 
+};
+int main()
+{
+ Customer c1,c2;
+ c1.ViewCusInfo();
+ c2.ViewCusInfo(); 
+ ++c1;
+ c2+=5;
+ c1.ViewCusInfo();
+ c2.ViewCusInfo(); 
+}
